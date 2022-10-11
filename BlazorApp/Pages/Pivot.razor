@@ -1,0 +1,48 @@
+﻿@page "/Pivot"
+
+@using Syncfusion.Blazor.PivotView
+@using Syncfusion.Blazor.Buttons
+
+
+
+@inject NavigationManager NavManager;
+
+<SfPivotView TValue="PlaceholderDsvCarPivot" @ref="@_pivot" ShowGroupingBar="true" AllowExcelExport="true" EnableVirtualization="false" Height="@_pivotHeight" Width="@_pivotWidth">
+    <PivotViewDataSourceSettings DataSource="@_dataSource" EnableSorting="true" ExpandAll="false">
+        <PivotViewColumns>
+            <PivotViewColumn Name="Bil"></PivotViewColumn>
+        </PivotViewColumns>
+        <PivotViewRows>
+            <PivotViewRow Name="Periode"></PivotViewRow>
+            <PivotViewRow Name="Dato"></PivotViewRow>
+        </PivotViewRows>
+        <PivotViewValues>
+            <PivotViewValue Name="Beløb" Caption="Beløb"></PivotViewValue>
+        </PivotViewValues>
+        <PivotViewFormatSettings>
+            <PivotViewFormatSetting Name="Beløb" Format="#,###.00" ></PivotViewFormatSetting>
+            <PivotViewFormatSetting Name="Dato" Type="FormatType.DateTime" Format="dd-MM-yyyy"></PivotViewFormatSetting>
+        </PivotViewFormatSettings>
+    </PivotViewDataSourceSettings>
+</SfPivotView>
+<SfButton OnClick="OnExcelExport" Content="Excel Export"></SfButton>
+
+<style>
+/*Value Cells*/
+.e-pivotview .e-valuescontent {
+    text-align: right !important;
+}
+
+/*Columns Headers*/
+.e-pivotview .e-headertext {
+    text-align: right !important;
+
+}
+
+/*Rows Headers*/
+.e-pivotview .e-rowsheader {
+    text-align: left !important;
+}
+</style>
+
+
