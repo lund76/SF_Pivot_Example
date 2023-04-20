@@ -1,3 +1,3 @@
-# Testing Syncfusion Pivot
+# Testing Syncfusion components
 
-## Specifically excel export feature.
+## Used to showcase issues.
